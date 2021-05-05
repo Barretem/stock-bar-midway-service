@@ -1,7 +1,7 @@
 import { Controller, Get, Provide } from '@midwayjs/decorator';
 
 @Provide()
-@Controller('/')
+@Controller('/frontend-node-plugin')
 export class HomeController {
   @Get('/')
   async home() {

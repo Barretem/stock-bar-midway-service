@@ -9,7 +9,7 @@ import { calcFixedPriceNumber, formatNumber } from '../utils/helper';
 import { IStock } from '../types/stock';
 
 @Provide()
-@Controller('/stock')
+@Controller('/frontend-node-plugin/stock')
 export class StockController {
   @Inject()
   ctx: Context;
