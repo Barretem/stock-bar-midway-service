@@ -1,3 +1,6 @@
+import * as CryptoJS from 'crypto-js';
+// var CryptoJS = require("crypto-js");
+const PRIVATE_KEY = 'stock-bar-midway-service-barretem';
 
 export const randHeader = () => {
   const head_connection = ['Keep-Alive', 'close'];
@@ -35,4 +38,16 @@ export const randHeader = () => {
     'User-Agent': head_user_agent[Math.floor(Math.random() * 10)],
   };
   return result;
+};
+
+/**
+ * 将对象加密转换
+ * @param params
+ * @returns
+ */
+export const encryptToString = params => {
+  if (typeof params === 'object') {
+    params = JSON.stringify(params);
+  }
+  return CryptoJS.AES.encrypt(params, PRIVATE_KEY).toString();
 };

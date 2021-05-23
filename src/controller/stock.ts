@@ -4,7 +4,7 @@ import { decode } from 'iconv-lite';
 
 import { UserService } from '../service/user';
 import request from '../utils/request';
-import { randHeader } from '../utils/index';
+import { randHeader, encryptToString } from '../utils/index';
 import { calcFixedPriceNumber, formatNumber } from '../utils/helper';
 import { IStock } from '../types/stock';
 
@@ -187,6 +187,10 @@ export class StockController {
       }
     }
 
-    return { success: true, message: 'OK', data: stockList };
+    return {
+      success: true,
+      message: 'OK',
+      data: encryptToString(stockList),
+    };
   }
 }
